@@ -8,6 +8,7 @@
 #include <string>
 #include <vector>
 #include <unordered_map>
+#include <unordered_set>
 #include <queue>
 #include <cmath>
 
@@ -55,3 +56,20 @@ void printTree(TreeNode* root) {
 //             }
 //     };
 // };
+
+
+//Definition for singly-linked list.
+struct ListNode {
+    int val;
+    ListNode *next;
+    ListNode(int x) : val(x), next(NULL) {}
+};
+
+void printListNodes(ListNode* root) {
+    ListNode* head = root;
+    while (head != nullptr) {
+        printf("%d->", head->val);
+        head = head->next;
+    }
+    printf("end\n");
+}

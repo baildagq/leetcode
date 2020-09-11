@@ -4,7 +4,7 @@ class Solution {
 public:
     bool isPrime(int n) {
         if (n == 2) return true;
-        for (int i = 2;i < int(floor(float(n))); i++) {
+        for (int i = 2; i * i <= n; i++) {
             if (n % i == 0) return false; 
         }
         return true;
@@ -12,7 +12,7 @@ public:
 
     int countPrimes(int n) {
         int res = 0;
-        for (int i = 2; i < n;i ++) {
+        for (int i = 2; i < n; i ++) {
             if (isPrime(i)) {
                 printf("%d ", i);
                 res += 1;
