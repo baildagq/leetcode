@@ -93,10 +93,30 @@ public:
 
    
    // method-3: 动态规划，这个方法之前自己是跟着别人题解学过的，不过又不会了，再新学一下
-    int maxProfit(vector<int> &prices)    {
+    int maxProfit(vector<int> &prices){
         int size = prices.size();
         if (size == 0) return 0;
-        int res = dfs(prices, false, 0, 0);
+        // dp[i][j][k] 表示第i天结束时，交易j次后，状态为k(0卖出，1买入)时的累计最大利润
+        vector<vector<vector<int>>> dp(size, vector<vector<int>>(3, vector<int>(2, 0)));
+        dp[0][0][0] = 0;
+        dp[0][0][1] = -prices[0];
+        dp[0][1][0] = 0;
+        dp[0][1][1] = -prices[0];
+        dp[0][2][0] = 0;
+
+        for (int i = 1;i < size; i++) {
+            dp[i][0][0] = dp[i-1][0][0];
+            dp[i][0][1] = max(dp[i-1][0][1], dp[i-1][0][0] - prices[i]);
+            dp[i][1][0] = max(dp[i-1][1][0], dp[i-1][0][1] + prices[i]);
+            dp[i][1][1] = max(dp[i-1][1][1], dp[i-1][1][0] - prices[i]);
+            dp[i][2][0] = max(dp[i-1][2][0], dp[i-1][1][1] + prices[i]);
+        }
+        int res = 0;
+        res = max(res, dp[size - 1][0][0]);
+        res = max(res, dp[size - 1][0][1]);
+        res = max(res, dp[size - 1][1][0]);
+        res = max(res, dp[size - 1][1][1]);
+        res = max(res, dp[size - 1][2][0]);
         return res;
     }
 };
