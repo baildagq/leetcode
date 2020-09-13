@@ -1,4 +1,6 @@
+# !/bin/bash
 # 使用方法：./run.sh [题号]
+
 run() {
     if ! test -e ./$1.cpp
     then
@@ -7,7 +9,7 @@ run() {
         # vim $1.cpp
     else
         # cpp文件存在时，生成运行文件到./exec下并运行 
-        g++ $1.cpp -std=c++17 -O0 -g -Wall -o ./exec/$1 && ./exec/$1
+        g++ $1.cpp -std=c++17 -Wall -Werror -fsanitize=address  -O0 -g -o ./exec/$1 && ./exec/$1
     fi
 }
 
