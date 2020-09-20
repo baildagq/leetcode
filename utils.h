@@ -14,7 +14,8 @@
 
 using namespace std;
 
-void printVector(vector<int>& list) {
+template<typename T>
+void printVector(vector<T>& list) {
     for (auto& v : list) {
         cout << v << " ";
     }

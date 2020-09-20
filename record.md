@@ -55,3 +55,10 @@ int main() {
 **gdb** 
 
 https://www.cs.cmu.edu/~gilpin/tutorial/
+
+### 2020.09.20
+
+**228**
+汇总区间
+
+题目很简单，需要捋清逻辑和转折关系
