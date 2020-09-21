@@ -11,6 +11,7 @@
 #include <unordered_set>
 #include <queue>
 #include <cmath>
+#include <bitset>
 
 using namespace std;
 
@@ -22,7 +23,8 @@ void printVector(vector<T>& list) {
     cout << endl;
 }
 
-void printVector2D(vector<vector<int>>& lists) {
+template<typename T>
+void printVector2D(vector<vector<T>>& lists) {
     for (auto& v : lists) {
         printVector(v);
     }
@@ -73,4 +75,8 @@ void printListNodes(ListNode* root) {
         head = head->next;
     }
     printf("end\n");
+}
+
+void printBin(int x) {
+    cout << bitset<sizeof(int)*8>(x) << endl;
 }
