@@ -1,30 +1,38 @@
 #include <algorithm>
+#include <bitset>
 #include <climits>
+#include <cmath>
 #include <cstdio>
 #include <cstdlib>
 #include <iostream>
 #include <map>
+#include <queue>
 #include <stack>
 #include <string>
-#include <vector>
 #include <unordered_map>
 #include <unordered_set>
-#include <queue>
-#include <cmath>
-#include <bitset>
+#include <vector>
 
 using namespace std;
 
-template<typename T>
-void printVector(vector<T>& list) {
-    for (auto& v : list) {
-        cout << v << " ";
+template <typename T>
+void printVector(vector<T>& list, int size = -1)
+{
+    if (size == -1) {
+        for (auto& v : list) {
+            cout << v << " ";
+        }
+    } else {
+        for (int i = 0;i < size; i++) {
+            cout << list[i] << " ";
+        }
     }
     cout << endl;
 }
 
-template<typename T>
-void printVector2D(vector<vector<T>>& lists) {
+template <typename T>
+void printVector2D(vector<vector<T>>& lists)
+{
     for (auto& v : lists) {
         printVector(v);
     }
@@ -33,12 +41,23 @@ void printVector2D(vector<vector<T>>& lists) {
 // Definition for a binary tree node.
 struct TreeNode {
     int val;
-    TreeNode *left;
-    TreeNode *right;
-    TreeNode(int x) : val(x), left(NULL), right(NULL) {}
+    TreeNode* left;
+    TreeNode* right;
+    TreeNode(int x)
+        : val(x)
+        , left(NULL)
+        , right(NULL)
+    {
+    }
 };
 
-void printTree(TreeNode* root) {
+TreeNode* makeTree(const vector<int>& list) {
+    TreeNode* root = new TreeNode(0);
+    return root;
+}
+
+void printTree(TreeNode* root)
+{
     if (root == nullptr) {
         printf("null ");
         return;
@@ -48,27 +67,18 @@ void printTree(TreeNode* root) {
     printTree(root->right);
 }
 
-// // unordered_map 自定义键值
-// namespace std {
-//     template <> //function-template-specialization
-//         class hash<vector>{
-//         public :
-//             size_t operator()(const vector &name ) const
-//             {
-//                 return hash<string>()(name.first) ^ hash<string>()(name.second);
-//             }
-//     };
-// };
-
-
-//Definition for singly-linked list.
 struct ListNode {
     int val;
-    ListNode *next;
-    ListNode(int x) : val(x), next(NULL) {}
+    ListNode* next;
+    ListNode(int x)
+        : val(x)
+        , next(NULL)
+    {
+    }
 };
 
-void printListNodes(ListNode* root) {
+void printListNodes(ListNode* root)
+{
     ListNode* head = root;
     while (head != nullptr) {
         printf("%d->", head->val);
@@ -77,6 +87,23 @@ void printListNodes(ListNode* root) {
     printf("end\n");
 }
 
-void printBin(int x) {
-    cout << bitset<sizeof(int)*8>(x) << endl;
+void printBin(int x)
+{
+    cout << bitset<sizeof(int) * 8>(x) << endl;
+}
+
+void SplitString(const std::string& s, std::vector<std::string>& v, const std::string& c)
+{
+    std::string::size_type pos1, pos2;
+    pos2 = s.find(c);
+    pos1 = 0;
+    while (std::string::npos != pos2) {
+        v.push_back(s.substr(pos1, pos2 - pos1));
+
+        pos1 = pos2 + c.size();
+        pos2 = s.find(c, pos1);
+    }
+    if (pos1 != s.length()) {
+        v.push_back(s.substr(pos1));
+    }
 }

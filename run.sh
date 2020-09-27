@@ -11,6 +11,10 @@ run() {
         # cpp文件存在时，生成运行文件到./exec下并运行 
         # g++ $1.cpp -std=c++17 -Wall -Werror -fsanitize=address  -O0 -g -o ./exec/$1 && \time ./exec/$1
         g++ $1.cpp -std=c++11 -Wall -O0 -g -o ./exec/$1 && \time ./exec/$1
+        # if [ $? != 0 ]
+        # then
+        #     gdb ./exec/$1
+        # fi
     fi
 }
 
