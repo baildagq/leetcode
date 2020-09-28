@@ -20,6 +20,7 @@ void printVector(vector<T>& list, int size = -1)
 {
     if (size == -1) {
         for (auto& v : list) {
+            cout.width(8);
             cout << v << " ";
         }
     } else {
