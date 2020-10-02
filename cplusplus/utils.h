@@ -16,7 +16,7 @@
 using namespace std;
 
 template <typename T>
-void printVector(vector<T>& list, int size = -1)
+void printVector(const vector<T>& list, int size = -1)
 {
     if (size == -1) {
         for (auto& v : list) {
@@ -32,7 +32,7 @@ void printVector(vector<T>& list, int size = -1)
 }
 
 template <typename T>
-void printVector2D(vector<vector<T>>& lists)
+void printVector2D(const vector<vector<T>>& lists)
 {
     for (auto& v : lists) {
         printVector(v);
