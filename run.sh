@@ -57,8 +57,8 @@ case $TYPE in
             cp $basedir/base.cpp $basedir/$NAME.cpp 
             vim $basedir/$NAME.cpp
         else
-            # g++ $basedir/$NAME.cpp -std=c++17 -Wall -Werror -fsanitize=address  -O0 -g -o ./exec/$NAME && \time ./exec/$NAME
-            g++ $basedir/$NAME.cpp -std=c++11 -Wall -O0 -g -o ./exec/$NAME && \time ./exec/$NAME
+            g++ $basedir/$NAME.cpp -std=c++11 -Wall -Werror -fsanitize=address  -O0 -g -o ./exec/$NAME && \time ./exec/$NAME
+            # g++ $basedir/$NAME.cpp -std=c++11 -Wall -O0 -g -o ./exec/$NAME && ./exec/$NAME
         fi
         ;;
     'py')

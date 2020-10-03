@@ -20,11 +20,11 @@ void printVector(const vector<T>& list, int size = -1)
 {
     if (size == -1) {
         for (auto& v : list) {
-            cout.width(8);
+            // cout.width(8);
             cout << v << " ";
         }
     } else {
-        for (int i = 0;i < size; i++) {
+        for (int i = 0; i < size; i++) {
             cout << list[i] << " ";
         }
     }
@@ -52,7 +52,8 @@ struct TreeNode {
     }
 };
 
-TreeNode* makeTree(const vector<int>& list) {
+TreeNode* makeTree(const vector<int>& list)
+{
     TreeNode* root = new TreeNode(0);
     return root;
 }
