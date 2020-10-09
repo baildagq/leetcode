@@ -322,7 +322,7 @@ dfs, 写的很慢，而且最后思路是一样的，但是写出来的代码和
 
 ## 2020.10.08
 
-#### 剑指 Offer 51. 数组中的逆序对
+#### [剑指 Offer 51. 数组中的逆序对]()
 
 method-1: 两重循环枚举，tle，时间复杂度O(n^2)
 
@@ -339,5 +339,65 @@ len[i] : 表示最大上升子序列的长度
 num[i] : 表示最大上身子序列的数量
 初值为 : len[i] = 1 num[i] = 1
 转移方程 : 更新下标i，需要根据从0到下标i-1的nums[j]和len[j]情况
+
+
+
+
+
+## 2020.10.09
+
+#### [剑指 Offer 09. 用两个栈实现队列](https://leetcode-cn.com/problems/yong-liang-ge-zhan-shi-xian-dui-lie-lcof/)
+
+之前都没有用过c++的stack容器，今天尝试用了一下，比较常用的函数push, pop, top，stack先进后出，之前都是用vector， push_back, pop_back()进行操作的
+
+感觉思路还是有点巧妙，就是由第一个用于push的栈中将元素转移到第二个用于pop的栈，每次转入一波元素后，要将pop栈完全弹空后再重新转入元素，这样做到了每次pop都是将最老的（最先加入queue中的）元素弹出
+
+#### [剑指 Offer 03. 数组中重复的数字](https://leetcode-cn.com/problems/shu-zu-zhong-zhong-fu-de-shu-zi-lcof/)
+
+最开始想的是空间复杂度为O(1)的一个跳转的想法，但是想了一下感觉方法还是不太对
+
+然后使用最普通的时间复杂度O(n) 空间复杂度O(n)的算法，比较简单
+
+#### [剑指 Offer 04. 二维数组中的查找](https://leetcode-cn.com/problems/er-wei-shu-zu-zhong-de-cha-zhao-lcof/)
+
+暴力做法循环遍历O(n^2)
+
+利用二维数组的性质，从右上角或左下角进行搜索，例如从右上角进行搜索：
+
+*   nums[i] [j] == target: return true
+*   nums[i] [j] < target: i += 1
+*   nums[i] [j] > target: j -= 1
+
+利用类似于一颗排序二叉树的性质
+
+#### [剑指 Offer 12. 矩阵中的路径](https://leetcode-cn.com/problems/ju-zhen-zhong-de-lu-jing-lcof/)
+
+DFS+回溯+二重循环遍历所有可能起点
+
+#### [剑指 Offer 05. 替换空格](https://leetcode-cn.com/problems/ti-huan-kong-ge-lcof/)
+
+C++ 比较好做，string支持直接+/-运算，如果用Python的话，需要用数组，然后将数组转化为字符串，应该是`''.join(list)`
+
+#### [141. 环形链表](https://leetcode-cn.com/problems/linked-list-cycle/)
+
+经典快慢指针法，感觉自己这回写的没有上回提交的好看
+
+#### [344. 反转字符串](https://leetcode-cn.com/problems/reverse-string/)
+
+iostream swap
+
+自己进行了交换次数的计算，以及下标的确定；题解方法为双指针法，感觉写的干净利索
+
+#### [剑指 Offer 13. 机器人的运动范围](https://leetcode-cn.com/problems/ji-qi-ren-de-yun-dong-fan-wei-lcof/)
+
+BFS    尝试使用了c++容器queue，常用函数: push, pop, top
+
+#### [剑指 Offer 06. 从尾到头打印链表](https://leetcode-cn.com/problems/cong-wei-dao-tou-da-yin-lian-biao-lcof/)
+
+vector / reverse
+
+#### [剑指 Offer 07. 重建二叉树](https://leetcode-cn.com/problems/zhong-jian-er-cha-shu-lcof/)
+
+
 
 #### [1044. 最长重复子串](https://leetcode-cn.com/problems/longest-duplicate-substring/)

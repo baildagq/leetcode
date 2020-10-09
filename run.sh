@@ -51,18 +51,19 @@ fi
 
 case $TYPE in
     'cpp')
-        basedir="./cplusplus"
+        # basedir="./cplusplus"
+        basedir="./"
         if ! test -e $basedir/$NAME.cpp
         then
             cp $basedir/base.cpp $basedir/$NAME.cpp 
             vim $basedir/$NAME.cpp
         else
-            # g++ $basedir/$NAME.cpp -std=c++11 -Wall -Werror -fsanitize=address  -O0 -g -o ./exec/$NAME && \time ./exec/$NAME
-            g++ $basedir/$NAME.cpp -std=c++11 -Wall -O0 -g -o ./exec/$NAME && ./exec/$NAME
+            g++ $basedir/$NAME.cpp -std=c++11 -Wall -Werror -fsanitize=address -O0 -g -o ./$NAME && ./$NAME
         fi
         ;;
     'py')
-        basedir="./python"
+        # basedir="./python"
+        basedir="./"
         if ! test -e $basedir/$NAME.py
         then
             cp $basedir/base.py $basedir/$NAME.py && vim $basedir/$NAME.py
