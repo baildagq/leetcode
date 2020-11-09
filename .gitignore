@@ -1,4 +1,4 @@
 .vscode/
 exec/
 test*
-*.todo
+TODO.md
