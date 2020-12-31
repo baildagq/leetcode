@@ -2,3 +2,4 @@
 exec/
 test*
 TODO.md
+.vim
