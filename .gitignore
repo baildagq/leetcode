@@ -3,3 +3,4 @@ exec/
 test*
 TODO.md
 .vim
+a.out
